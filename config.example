@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# your hostname or zone
+hostname="coffee.ddns.rekmp.net"
+
+# your login
+user=""
+
+# your password or key
+password="C0:7D:C0:FF:EE:12"
+
+# url for ddns request
+urlDdns="https://ddns.rekmp.net/ddns.php?zone=$hostname&key=$password"
+
+# url for ip request
+urlIP="http://ipv4.rekmp.net/"
+
+# when to force update
+force="25 hours"
+
+# params for curl (timeout, IPv4)
+curlParams="--silent --ipv4 --max-time 6"
+
