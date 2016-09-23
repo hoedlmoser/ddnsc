@@ -1,0 +1,2 @@
+# ddnsc
+simple dyndns client
