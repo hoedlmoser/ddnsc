@@ -4,6 +4,8 @@ scriptdir=$(dirname $0)
 
 . $scriptdir/config
 
+curlParams="$curlParams --user-agent ddnsc/0.1"
+
 
 log() {
    logger -t ddnsc -p daemon.notice "$1: $2"
@@ -55,7 +57,7 @@ if [ $update -eq 1 ]; then
   
   response=$(echo "$response" | sed 's/<[^>]*>/ /g;s/^\s*//g;s/\s*$//g' | tr -s ' ')
 
-  if [[ "$response" =~ Success ]]; then
+  if [[ "$response" =~ (Success|good|nochg) ]]; then
     log "success" "$response"
     echo -n $actIP > $scriptdir/lastip
   else
