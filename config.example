@@ -18,6 +18,9 @@ urlIP="http://ipv4.rekmp.net/"
 # when to force update
 force="25 hours"
 
+# jitter for update in seconds
+jitter="60"
+
 # params for curl (timeout, IPv4)
 curlParams="--silent --ipv4 --max-time 6"
 

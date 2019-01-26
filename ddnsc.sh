@@ -15,6 +15,7 @@ log() {
 
 update=0
 
+sleep $[RANDOM%$jitter]
 
 if [ -f $scriptdir/lastip ]; then
   lastIP=$(< $scriptdir/lastip)
