@@ -62,7 +62,7 @@ for ipType in ${ipTypes[*]}; do
   
     response=$(echo "$response" | sed 's/<[^>]*>/ /g;s/^\s*//g;s/\s*$//g' | tr -s ' ')
 
-    if [[ "$response" =~ (Success|good|nochg) ]]; then
+    if [[ "$response" =~ (good|nochg) ]]; then
       log "success" "$response"
       echo -n $actIP > $scriptdir/lastip$ipType
     else
