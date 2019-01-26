@@ -10,10 +10,22 @@ user=""
 password="C0:7D:C0:FF:EE:12"
 
 # url for ddns request
-urlDdns="https://ddns.rekmp.net/ddns.php?zone=$hostname&key=$password"
+ddnsScheme="https"
+ddnsHostPrefix=([4]=ipv4 [6]=ipv6)
+ddnsHost="ddns.rekmp.net"
+ddnsPath="ddns.php"
+ddnsQuery="zone=$hostname&key=$password"
 
 # url for ip request
-urlIP="http://ipv4.rekmp.net/"
+qipScheme="$ddnsScheme"
+qipHostPrefix=([4]=ipv4 [6]=ipv6)
+qipHost="$ddnsHost"
+qipPath="ip.php"
+
+# are we DualStack?
+ipTypes=(4 6)	# DualStack
+#ipTypes=(4)	# IPv4 only
+#ipTypes=(6)	# IPv6 only
 
 # when to force update
 force="25 hours"
@@ -21,6 +33,7 @@ force="25 hours"
 # jitter for update in seconds
 jitter="60"
 
-# params for curl (timeout, IPv4)
-curlParams="--silent --ipv4 --max-time 6"
+# params for curl (timeout, ...)
+curlParams="--silent --max-time 6"
+curlParamIp=([4]='--ipv4' [6]='--ipv6')
 
